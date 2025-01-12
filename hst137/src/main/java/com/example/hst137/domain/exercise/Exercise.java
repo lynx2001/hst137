@@ -14,21 +14,29 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "name")
     private String name;
 
+    @Column(name = "area")
     private String area;
 
+    @Column(name = "push_pull")
     private String pushPull;
 
+    @Column(name = "rep_max_light_weight")
     private double repMaxLightWeight;
+    @Column(name = "rep_max_light_reps")
     private int repMaxLightReps;
 
+    @Column(name = "rep_max_heavy_weight")
     private double repMaxHeavyWeight;
+    @Column(name = "rep_max_heavy_reps")
     private int repMaxHeavyReps;
 
+    @Column(name = "tool")
     private String tool;
 
+    @Column(name = "alternation")
     private boolean alternation;
 
     protected Exercise() {}

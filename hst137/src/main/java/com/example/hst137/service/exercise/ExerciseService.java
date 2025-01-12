@@ -6,7 +6,6 @@ import com.example.hst137.dto.exercise.request.ExerciseCreateRequest;
 import com.example.hst137.dto.exercise.request.ExerciseUpdateRequest;
 import com.example.hst137.dto.exercise.response.ExerciseResponse;
 import com.example.hst137.repository.exercise.ExerciseJdbcRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
