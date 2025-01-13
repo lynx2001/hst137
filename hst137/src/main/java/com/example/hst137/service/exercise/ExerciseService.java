@@ -18,7 +18,7 @@ public class ExerciseService {
     private final ExerciseRepository exerciseRepository;
     private final ExerciseJdbcRepository exerciseJdbcRepository;
 
-    public ExerciseService(ExerciseRepository exerciseRepository, @Qualifier("exerciseJdbcRepository") ExerciseJdbcRepository exerciseJdbcRepository) {
+    public ExerciseService(ExerciseRepository exerciseRepository, @Qualifier("exerciseRepository") ExerciseJdbcRepository exerciseJdbcRepository) {
         this.exerciseRepository = exerciseRepository;
         this.exerciseJdbcRepository = exerciseJdbcRepository;
     }
