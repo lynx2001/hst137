@@ -54,6 +54,13 @@ public class ExerciseController {
         return exerciseService.getExerciseById(id);
     }
 
+    @Operation(summary = "Get exercise by name", description = "Returns the details of a specific exercise by its name.")
+    @ApiResponse(responseCode = "200OK", description = "Exercise details retrieved successfully")
+    @GetMapping(value = "/exercise", params = "name")
+    public ExerciseResponse getExercise(@RequestParam String name) {
+        return exerciseService.getExerciseByName(name);
+    }
+
     @Operation(summary = "Update an exercise", description = "Updates an existing exercise with new details.")
     @ApiResponse(responseCode = "200OK", description = "Exercise updated successfully")
     @PutMapping("/exercise")
@@ -61,10 +68,17 @@ public class ExerciseController {
         exerciseService.updateExercise(request);
     }
 
-    @Operation(summary = "Delete an exercise", description = "Deletes an exercise by its ID.")
+    @Operation(summary = "Delete an exercise by ID", description = "Deletes an exercise by its ID.")
     @ApiResponse(responseCode = "200OK", description = "Exercise deleted successfully")
-    @DeleteMapping("/exercise")
+    @DeleteMapping(value = "/exercise", params = "id")
     public void deleteExercise(@RequestParam Long id) {
         exerciseService.deleteExercise(id);
+    }
+
+    @Operation(summary = "Delete an exercise by name", description = "Deletes an exercise by its name.")
+    @ApiResponse(responseCode = "200OK", description = "Exercise deleted successfully")
+    @DeleteMapping(value = "/exercise", params = "name")
+    public void deleteExercise(@RequestParam String name) {
+        exerciseService.deleteExercise(name);
     }
 }

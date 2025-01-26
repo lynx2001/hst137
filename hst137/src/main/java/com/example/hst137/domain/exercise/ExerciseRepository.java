@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface ExerciseRepository extends JpaRepository<Exercise, Long> {
     Optional<Exercise> findByName(String name);
     List<Exercise> findByArea(String area);
+    boolean existsByName(String name);
 }

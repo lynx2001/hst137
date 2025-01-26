@@ -26,6 +26,9 @@ public class ExerciseService {
     //운동 생성
     @Transactional
     public void saveExercise(ExerciseCreateRequest request) {
+        if (exerciseRepository.existsByName(request.getName())) {
+            throw new IllegalStateException("Exercise with the same name already exists.");
+        }
         Exercise exercise = new Exercise(
                 request.getName(),
                 request.getArea(),
@@ -57,6 +60,13 @@ public class ExerciseService {
                 .orElseThrow(IllegalArgumentException::new);
     }
 
+    @Transactional(readOnly = true)
+    public ExerciseResponse getExerciseByName(String name) {
+        return exerciseRepository.findByName(name)
+                .map(ExerciseResponse::new)
+                .orElseThrow(IllegalArgumentException::new);
+    }
+
     //운동 수정
     @Transactional
     public void updateExercise(ExerciseUpdateRequest request) {
@@ -80,6 +90,14 @@ public class ExerciseService {
     @Transactional
     public void deleteExercise(Long id) {
         Exercise exercise = exerciseRepository.findById(id)
+                .orElseThrow(IllegalArgumentException::new);
+
+        exerciseRepository.delete(exercise);
+    }
+
+    @Transactional
+    public void deleteExercise(String name) {
+        Exercise exercise = exerciseRepository.findByName(name)
                 .orElseThrow(IllegalArgumentException::new);
 
         exerciseRepository.delete(exercise);

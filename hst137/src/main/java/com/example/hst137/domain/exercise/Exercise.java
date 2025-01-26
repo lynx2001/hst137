@@ -14,7 +14,7 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
 
-    @Column(nullable = false, name = "name")
+    @Column(nullable = false, name = "name", unique = true)
     private String name;
 
     @Column(name = "area")
@@ -39,6 +39,15 @@ public class Exercise {
     @Column(name = "alternation")
     private boolean alternation;
 
+    private double slope;
+    private double intercept;
+    private double increment;
+    private double oneRM;
+
+    private double firstSessionWeight;
+    private double lastSessionWeight;
+    private double incrementWeight;
+
     protected Exercise() {}
 
     public Exercise(String name, String area, String pushPull, double repMaxLightWeight, int repMaxLightReps, double repMaxHeavyWeight, int repMaxHeavyReps, String tool, boolean alternation) {
@@ -51,6 +60,14 @@ public class Exercise {
         this.repMaxHeavyReps = repMaxHeavyReps;
         this.tool = tool;
         this.alternation = alternation;
+
+        slope = (repMaxHeavyWeight - repMaxLightWeight) / (repMaxHeavyReps - repMaxLightReps);
+        intercept = repMaxHeavyWeight - (slope * repMaxHeavyReps);
+        increment = (95.0 - 58.0) / (31 - 1);
+        oneRM = repsWeight(1);
+        firstSessionWeight = oneRM * 0.58;
+        lastSessionWeight = oneRM * 0.95;
+        incrementWeight = (lastSessionWeight - firstSessionWeight) / (31 - 1);
     }
 
     public void updateName(String name) {
@@ -85,6 +102,11 @@ public class Exercise {
 
     public void updateAlternation(boolean alternation) {
         this.alternation = alternation;
+    }
+
+
+    public double repsWeight(int reps) {
+        return intercept + (slope * reps);
     }
 
     @Override
