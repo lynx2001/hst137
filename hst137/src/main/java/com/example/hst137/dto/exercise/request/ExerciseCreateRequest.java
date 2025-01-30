@@ -4,6 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class ExerciseCreateRequest {
+    private Long scheduleId;
     private String name;
     private String area;
     private String pushPull;
@@ -14,7 +15,8 @@ public class ExerciseCreateRequest {
     private String tool;
     private boolean alternation;
 
-    public ExerciseCreateRequest(String name, String area, String pushPull, double repMaxLightWeight, int repMaxLightReps, double repMaxHeavyWeight, int repMaxHeavyReps, String tool, boolean alternation) {
+    public ExerciseCreateRequest(Long scheduleId, String name, String area, String pushPull, double repMaxLightWeight, int repMaxLightReps, double repMaxHeavyWeight, int repMaxHeavyReps, String tool, boolean alternation) {
+        this.scheduleId = scheduleId;
         this.name = name;
         this.area = area;
         this.pushPull = pushPull;
