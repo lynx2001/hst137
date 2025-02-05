@@ -2,6 +2,7 @@ package com.example.hst137.controller.schedule;
 
 import com.example.hst137.domain.schedule.ScheduleRepository;
 import com.example.hst137.dto.schedule.request.ScheduleCreateRequest;
+import com.example.hst137.dto.schedule.request.ScheduleUpdateRequest;
 import com.example.hst137.dto.schedule.response.ScheduleResponse;
 import com.example.hst137.service.schedule.ScheduleService;
 import org.springframework.http.ResponseEntity;
@@ -39,5 +40,12 @@ public class ScheduleController {
     @GetMapping(value = "/schedule", params = "week")
     public List<ScheduleResponse> getScheduleByWeek(@RequestParam int week) {
         return scheduleService.getScheduleByWeek(week);
+    }
+
+    @PutMapping(value = "/schedule")
+    public ResponseEntity<Void> updateSchedule(@RequestBody ScheduleUpdateRequest request) {
+        scheduleService.updateSchedule(request);
+
+        return ResponseEntity.ok().build();
     }
 }
