@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.schedule {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.week {
+    margin-bottom: 20px;
+}
+
+.week h2 {
+    text-align: center;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.day {
+    margin-bottom: 20px;
+}
+
+.day h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+.day h3 span {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.exercise {
+    margin-bottom: 50px; /* Increased space between exercises */
+}
+
+.exercise table {
+    margin-top: 30px; /* Space above each table */
+    margin-bottom: 30px; /* Space below each table */
+}
+
+.exercise td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #007BFF;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.day:last-child {
+    margin-bottom: 0;
+}

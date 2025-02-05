@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>등록 페이지</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js" defer></script> <!-- defer 추가로 DOM 로드 후 스크립트 실행 -->
+</head>
+<body>
+    <header>
+        <h1>등록</h1>
+    </header>
+    <main>
+        <form class="register-form"> <!-- 중첩된 form 제거 -->
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="area">부위</label>
+                <input type="text" id="area" name="area" required>
+            </div>
+            <div class="form-group">
+                <label for="pushPull">Push / Pull</label>
+                <select id="pushPull" name="pushPull">
+                    <option value="push">Push</option>
+                    <option value="pull">Pull</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lightWeight">Light Weight</label>
+                <input type="number" id="lightWeight" name="lightWeight" placeholder="Weight">
+                <input type="number" id="lightReps" name="lightReps" placeholder="Reps">
+            </div>
+            <div class="form-group">
+                <label for="heavyWeight">Heavy Weight</label>
+                <input type="number" id="heavyWeight" name="heavyWeight" placeholder="Weight">
+                <input type="number" id="heavyReps" name="heavyReps" placeholder="Reps">
+            </div>
+            <div class="form-group">
+                <label for="tool">Tool</label>
+                <select id="tool" name="tool">
+                    <option value="dumbbell">Dumbbell</option>
+                    <option value="barbell">Barbell</option>
+                    <option value="free-weight">Free-weight</option>
+                </select>
+            </div>
+            <div class="form-group checkbox-group">
+                <label for="alternation">Alternation</label>
+                <input type="checkbox" id="alternation" name="alternation">
+            </div>
+            <button type="submit">등록</button>
+        </form>
+    </main>
+</body>
+</html>
